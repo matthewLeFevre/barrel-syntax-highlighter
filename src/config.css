@@ -1,0 +1,46 @@
+/* 
+* Configure how your code will be highlighted
+*
+* Change the variables to effect the different 
+* highlightable behavior
+*/
+
+
+:root {  
+  --whiteSpace: #646464;
+	--comment: #D1D1D1;;
+	--keyword: #ffc636;
+	--property: #ffc636;
+	--operator: #ff6444;
+	--number: #00ada9;
+	--string: #ffd945;
+	--attribute: #81f900;
+	--class: #00ada9;
+  --tag: #ff3f4f;
+  --font: "Lucida Console", Monaco, monospace;
+}
+            /* Html Key */      /* CSS Key */
+.t { color: var(--tag);}        /*css - id, decorator */
+.a { color: var(--attribute);}  /*css - property */
+.s { color: var(--string);}     /*css - value */
+.c { color: var(--comment);}    /*css - comment */
+.k { color: var(--keyword);}    /*css - n/a*/
+.p { color: var(--property);}   /*css - n/a*/
+.o { color: var(--operator);}   /*css - n/a*/
+.n { color: var(--number);}     /*css - n/a*/
+.l { color: var(--class);}      /*css - class */
+
+pre {
+  margin: 16px;
+  height: auto;
+  background-color: var(--whiteSpace);
+}
+
+code {
+  padding: 1rem;
+  display: block;
+  line-height: 1.5;
+  color: #fff;
+  overflow-x: scroll;
+  font-family: var(--font);
+}
