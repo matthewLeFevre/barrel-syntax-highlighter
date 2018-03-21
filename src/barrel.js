@@ -17,7 +17,7 @@ class SyntaxHighlight {
     if (dest === null) {
       this.source = source;
       this.dest   = source;
-    } else if (source === ture && dest === true) {
+    } else if (source === true && dest === true) {
       this.source = source;
       this.dest   = dest;
     } else {
@@ -137,11 +137,11 @@ window.onload = () => {
   let html_blocks = document.getElementsByName("html");
   let css_blocks  = document.getElementsByName("css");
   for( let block of html_blocks) {
-    new SyntaxHighlight(block, block);
+    new SyntaxHighlight(block);
   }
 
   for( let block of css_blocks) {
-    new SyntaxHighlight(block, block);
+    new SyntaxHighlight(block);
   }
 
 }
