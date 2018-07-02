@@ -1,11 +1,13 @@
 /*
 * Barrel Syntax Highlighter
 *
+* -- may not be as preformant as more mature syntax highlighting tools --
+*
 * Plug and Play - more detailed instructions on: 
 *  https://github.com/matthewLeFevre/barrel-syntax-highlighter
 *
 *  1. download file
-*  2. Make sure your styles are set up
+*  2. Make your own theme by altering the config.css file
 */
 
 class SyntaxHighlight {
@@ -14,6 +16,9 @@ class SyntaxHighlight {
   constructor(source = null, dest = null) {
 
     // Handle source/destination 
+    //
+    // By default only source is declared
+    // Destination is optional
     if (dest === null) {
       this.source = source;
       this.dest   = source;
@@ -25,6 +30,9 @@ class SyntaxHighlight {
     }
 
     // retrieve type of syntax highlighting
+    //
+    // can be 'html' or 'css' add this to your
+    // source element as a name attribute
     this.type   = source.attributes.name.nodeValue;
 
     // process type and formate accordingly
@@ -42,7 +50,7 @@ class SyntaxHighlight {
     // retrive code to be parsed
     let code = this.source.innerHTML;
 
-    // Replace crucial symboles which html entities
+    // Replace crucial symboles with html entities
         code = code.replace(/\"\>/g, '\" >')
                    .replace(/</g, ' &lt;')
                    .replace(/>/g, '&gt; ')
@@ -143,7 +151,6 @@ window.onload = () => {
   for( let block of css_blocks) {
     new SyntaxHighlight(block);
   }
-
 }
 
 
