@@ -40,6 +40,10 @@ class SyntaxHighlight {
       this.format_html();
     } else if (this.type === "css") {
       this.format_css();
+    }else if (this.type == 'js'){    
+      this.format_js();
+    } else if (this.type == 'php'){
+      this.format__php();
     } else {
       console.log("Please Formate HTML or CSS");
     }
@@ -138,6 +142,44 @@ class SyntaxHighlight {
       this.dest.innerHTML = finished;
     }
 
+  }
+
+  format_js () {
+    let code = this.source.innerHTML,
+        finished = "";
+
+        // remedies line breaks & space bug
+        code = code.replace(/\n/g, " \n ");
+    let codeParts = code.split(" ");
+
+    for(let part of codeParts) {
+      // keywords
+      let keywords = ['function', 'class', 'let', 'var', 'const', 'if', 'for', 'while', 'new'];
+      for(let word of keywords){
+        if(this.part == word) {
+          finished += "<span class='l'>" + part + "</span> ";
+        }
+      }
+    }
+  }
+
+  format_php () {
+    let code = this.source.innerHTML,
+        finished = "";
+
+        // remedies line breaks & space bug
+        code = code.replace(/\n/g, " \n ");
+    let codeParts = code.split(" ");
+
+    for(let part of codeParts) {
+      // keywords
+      let keywords = ['function', 'class', 'const', 'if', 'for', 'while', 'new'];
+      for(let word of keywords){
+        if(this.part == word) {
+          finished += "<span class='l'>" + part + "</span> ";
+        }
+      }
+    }
   }
 }
 
